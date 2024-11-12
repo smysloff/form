@@ -7,7 +7,7 @@ server.listen(port)
 
 server.on('request', async (request, response) => {
   if (request.url === '/') {
-    const fileHandle = await fs.open('views/index.html')
+    const fileHandle = await fs.open('views/main.html')
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html')
     fileHandle.createReadStream().pipe(response)

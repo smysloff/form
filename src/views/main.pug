@@ -5,34 +5,36 @@ head(lang="en")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
   link(rel="icon" href="data:,")
   link(rel="stylesheet" href="/css/main.css")
+  script(src="/js/main.mjs" type="module" defer)
 body
   .container
     .mform
       form.mform__list
 
         .mform__item
-          h2.mform__title Создание METAR/SPECI
-
-        .mform__item
-          .mform__cols
-            .mform__col
-              input#metar.mform__input.mform__input_radio(
-                name="type"
-                type="radio"
-                checked
-              )
-              label.mform__label(for="metar") METAR
-            .mform__col
-              input#speci.mform__input.mform__input_radio(
-                name="type"
-                type="radio"
-              )
-              label.mform__label(for="speci") SPECI
+          .mform__rows
+            .mform__row
+              label.mform__label(for="metar") Создание METAR/SPECI
+            .mform__row
+              .mform__cols
+                .mform__col
+                  input#metar.mform__input.mform__input_radio(
+                    name="type"
+                    type="radio"
+                    checked
+                  )
+                  label.mform__label(for="metar") METAR
+                .mform__col
+                  input#speci.mform__input.mform__input_radio(
+                    name="type"
+                    type="radio"
+                  )
+                  label.mform__label(for="speci") SPECI
 
         .mform__item
           .mform__rows
             .mform__row
-              label.mform__label(for="icao") ICAO
+              label.mform__label(for="icao") 1) ICAO
             .mform__row
               input#icao.mform__input.mform__input_text(
                 name="icao"
@@ -45,7 +47,7 @@ body
             .mform__col
               .mform__rows
                 .mform__row
-                  label.mform__label(for="date") Дата
+                  label.mform__label(for="date") 2) Дата
                 .mform__row
                   input#date.mform__input.mform__input__text(
                     name="date"
@@ -66,7 +68,7 @@ body
         .mform__item
           .mform__rows
             .mform__row
-              label.mform__label(for="wind") Ветер
+              label.mform__label(for="wind") 3) Ветер
             .mform__row
               .mform__cols
                 .mform__col
@@ -130,7 +132,7 @@ body
             .mform__col
               .mform__rows
                 .mform__row
-                  label.mform__label(for="visibility") Видимость
+                  label.mform__label(for="visibility") 4) Видимость
                 .mform__row
                   .mform__cols
                     .mform__col
@@ -147,9 +149,12 @@ body
                       label.mform__label(for="cavok") CAVOK
 
         .mform__item
+          label.mform__label 5) Явления погоды
+
+        .mform__item
           .mform__rows
             .mform__row
-              label.mform__label(for="height") Облачность
+              label.mform__label(for="height") 6) Облачность
             .mform__row
               .mform__cols
                 .mform__col
@@ -188,6 +193,7 @@ body
                           )
                           label.mform__label(for="ovc") OVC
                     .mform__row
+                      .mform__cols
                         .mform__col
                           input#clr.mform__input.mform__input_radio(
                             name="clouds"
@@ -210,73 +216,82 @@ body
                           )
                           label.mform__label(for="ncd") NCD
 
+        .mform__item
+          .mform__cols
+            .mform__col
+              .mform__rows
+                .mform__row
+                  label.mform__label(for="temperature") 7) Температура
+                .mform__row
+                  input#temperature.mform__input.mform__input_text(
+                    name="temperature"
+                    type="text"
+                    autocomplete="off"
+                  )
+            .mform__col
+              .mform__rows
+                .mform__row
+                  label.mform__label(for="dewpoint") Точка росы
+                .mform__row
+                  input#dewpoint.mform__input.mform__input_text(
+                    name="dewpoint"
+                    type="text"
+                    autocomplete="off"
+                  )
+
+        .mform__item
           .mform__rows
-            .mform__cols
-              .mform__col
-                .mform__rows
-                  .mform__row
-                    label.mform__label(for="temperature") Температура
-                  .mform__row
-                    input#temperature.mform__input.mform__input_text(
-                      name="temperature"
-                      type="text"
-                      autocomplete="off"
-                    )
-              .mform__col
-                .mform__rows
-                  .mform__row
-                    label.mform__label(for="dewpoint") Точка росы
-                  .mform__row
-                    input#dewpoint.mform__input.mform__input_text(
-                      name="dewpoint"
-                      type="text"
-                      autocomplete="off"
-                    )
+            .mform__row
+              label.mform__label(for="pressure") 8) Давление
+            .mform__row
+              .mform__cols
+                .mform__col
+                  input#pressure.mform__input.mform__input_text(
+                    name="pressure"
+                    type="text"
+                    autocomplete="off"
+                  )
+                .mform__col
+                  .mform__cols
+                    .mform__col
+                      input#pressure_units_a.mform__input.mform__input_radio(
+                        name="pressure_units"
+                        type="radio"
+                        value="a"
+                        checked
+                      )
+                      label.mform__label(for="pressure_units_a") A
+                    .mform__col
+                      input#pressure_units_q.mform__input.mform__input_radio(
+                        name="pressure_units"
+                        type="radio"
+                        value="q"
+                      )
+                      label.mform__label(for="pressure_units_q") Q
 
-          .mform__item
-            .mform__cols
-              .mform__col
-                .mform__rows
-                  .mform__row
-                    label.mform__label(for="pressure") Давление
-                  .mform__row
-                    input#pressure.mform__input.mform__input_text(
-                      name="pressure"
-                      type="text"
-                      autocomplete="off"
-                    )
-              .mform__col
-                .mform__cols
-                  .mform__col
-                    input#pressure_units_a.mform__input.mform__input_radio(
-                      name="pressure_units"
-                      type="radio"
-                      value="a"
-                      checked
-                    )
-                    label.mform__label(for="pressure_units_a") A
-                  .mform__col
-                    input#pressure_units_q.mform__input.mform__input_radio(
-                      name="pressure_units"
-                      type="radio"
-                      value="q"
-                    )
-                    label.mform__label(for="pressure_units_q") Q
+        .mform__item
+          label.mform__label 9) Дополнительная информация
 
-          .mform__item
-            .mform__cols
-              .mform__col
-                .mform__rows
-                  .mform__row
-                    label.mform__label(for="output") Сводка
-                  .mform__row
-                    input#output.mform__input.mform__input_text(
-                      name="output"
-                      type="text"
-                      autocomplete="off"
-                    )
-              .mform__col
-                input.mform__input.mform__input_success(
-                  type="submit"
-                  value="Создать"
-                )
+        .mform__item
+          label.mform__label 10) Прогноз на посадку
+
+        .mform__item
+          label.mform__label 11) Дополнительная информация
+
+        .mform__item
+          .mform__rows
+            .mform__row
+              label.mform__label(for="output") Сводка
+            .mform__row
+              .mform__cols
+                .mform__col
+                  input#output.mform__input.mform__input_text(
+                    name="output"
+                    type="text"
+                    autocomplete="off"
+                  )
+                .mform__col
+                  input.mform__input.mform__input_submit(
+                    type="submit"
+                    value="Создать"
+                  )
