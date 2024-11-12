@@ -16,6 +16,11 @@ server.on('request', async (request, response) => {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/css')
     fileHandle.createReadStream().pipe(response)
+  } else if (request.url === '/js/main.mjs') {
+    const fileHandle = await fs.open('public/js/main.mjs')
+    response.statusCode = 200
+    response.setHeader('Content-Type', 'text/javascript')
+    fileHandle.createReadStream().pipe(response)
   } else {
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/plain')

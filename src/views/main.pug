@@ -2,14 +2,17 @@ doctype html
 head(lang="en")
   meta(charset="utf-8")
   title Hello, World!
-  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  meta(
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+  )
   link(rel="icon" href="data:,")
   link(rel="stylesheet" href="/css/main.css")
   script(src="/js/main.mjs" type="module" defer)
 body
   .container
     .mform
-      form.mform__list
+      form.mform__list(name="mform")
 
         .mform__item
           .mform__rows
@@ -21,6 +24,7 @@ body
                   input#metar.mform__input.mform__input_radio(
                     name="type"
                     type="radio"
+                    value="metar"
                     checked
                   )
                   label.mform__label(for="metar") METAR
@@ -28,6 +32,7 @@ body
                   input#speci.mform__input.mform__input_radio(
                     name="type"
                     type="radio"
+                    value="speci"
                   )
                   label.mform__label(for="speci") SPECI
 
