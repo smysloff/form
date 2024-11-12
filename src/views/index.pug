@@ -1,0 +1,282 @@
+doctype html
+head(lang="en")
+  meta(charset="utf-8")
+  title Hello, World!
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(rel="icon" href="data:,")
+  link(rel="stylesheet" href="/css/main.css")
+body
+  .container
+    .mform
+      form.mform__list
+
+        .mform__item
+          h2.mform__title Создание METAR/SPECI
+
+        .mform__item
+          .mform__cols
+            .mform__col
+              input#metar.mform__input.mform__input_radio(
+                name="type"
+                type="radio"
+                checked
+              )
+              label.mform__label(for="metar") METAR
+            .mform__col
+              input#speci.mform__input.mform__input_radio(
+                name="type"
+                type="radio"
+              )
+              label.mform__label(for="speci") SPECI
+
+        .mform__item
+          .mform__rows
+            .mform__row
+              label.mform__label(for="icao") ICAO
+            .mform__row
+              input#icao.mform__input.mform__input_text(
+                name="icao"
+                type="text"
+                autocomplete="off"
+              )
+
+        .mform__item
+          .mform__cols
+            .mform__col
+              .mform__rows
+                .mform__row
+                  label.mform__label(for="date") Дата
+                .mform__row
+                  input#date.mform__input.mform__input__text(
+                    name="date"
+                    type="text"
+                    autocomplete="off"
+                  )
+            .mform__col
+              .mform__rows
+                .mform__row
+                  label.mform__label(for="time") Время
+                .mform__row
+                  input#time.mform__input.mform__input_text(
+                    name="time"
+                    type="text"
+                    autocomplete="off"
+                  )
+
+        .mform__item
+          .mform__rows
+            .mform__row
+              label.mform__label(for="wind") Ветер
+            .mform__row
+              .mform__cols
+                .mform__col
+                  input#wind.mform__input.mform__input_radio(
+                    name="wind"
+                    type="radio"
+                    value="wind"
+                    checked
+                  )
+                  label.mform__label(for="wind") Задать в ручную
+                .mform__col
+                  input#vrb.mform__input.mform__input_radio(
+                    name="wind"
+                    type="radio"
+                    value="vrb"
+                  )
+                  label.mform__label(for="vrb") VRB
+                .mform__col
+                  input#calm.mform__input.mform__input__radio(
+                    name="wind"
+                    type="radio"
+                    value="calm"
+                  )
+                  label.mform__label(for="calm") CALM
+
+            .mform__row
+              .mform__cols
+                .mform__col
+                  .mform__rows
+                    .mform__row
+                      label.mform__label(for="direction") Направление
+                    .mform__row
+                      input#direction.mform__input.mform__input_text(
+                        name="direction"
+                        type="text"
+                        autocomplete="off"
+                      )
+                .mform__col
+                  .mform__rows
+                    .mform__row
+                      label.mform__label(for="speed") Скорость
+                    .mform__row
+                      input#speed.mform__input.mform__input_text(
+                        name="speed"
+                        type="text"
+                        autocomplete="off"
+                      )
+                .mform__col
+                  .mform__rows
+                    .mform__row
+                      label.mform__label(for="gust") Порывы
+                    .mform__row
+                      input#gust.mform__input.mform__input_text(
+                        name="gust"
+                        type="text"
+                        autocomplete="off"
+                      )
+
+        .mform__item
+          .mform__cols
+            .mform__col
+              .mform__rows
+                .mform__row
+                  label.mform__label(for="visibility") Видимость
+                .mform__row
+                  .mform__cols
+                    .mform__col
+                      input#visibility.mform__input.mform__input_text(
+                        name="visibility"
+                        type="text"
+                        autocomplete="off"
+                      )
+                    .mform__col
+                      input#cavok.mform__input.mform__input_checkbox(
+                        name="cavok"
+                        type="checkbox"
+                      )
+                      label.mform__label(for="cavok") CAVOK
+
+        .mform__item
+          .mform__rows
+            .mform__row
+              label.mform__label(for="height") Облачность
+            .mform__row
+              .mform__cols
+                .mform__col
+                  .mform__rows
+                    .mform__row
+                      label.mform__label(for="height") Высота облаков
+                    .mform__row
+                      input#height.mform__input.mform__input_text(
+                        name="height"
+                        type="text"
+                        autocomplete="off"
+                      )
+                .mform__col
+                  .mform__rows
+                    .mform__row
+                      .mform__cols
+                        .mform__col
+                          input#sct.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="sct"
+                          )
+                          label.mform__label(for="sct") SCT
+                        .mform__col
+                          input#bkn.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="bkn"
+                          )
+                          label.mform__label(for="bkn") BKN
+                        .mform__col
+                          input#ovc.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="ovc"
+                          )
+                          label.mform__label(for="ovc") OVC
+                    .mform__row
+                        .mform__col
+                          input#clr.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="clr"
+                          )
+                          label.mform__label(for="clr") CLR
+                        .mform__col
+                          input#nsc.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="nsc"
+                          )
+                          label.mform__label(for="nsc") NSC
+                        .mform__col
+                          input#ncd.mform__input.mform__input_radio(
+                            name="clouds"
+                            type="radio"
+                            value="ncd"
+                          )
+                          label.mform__label(for="ncd") NCD
+
+          .mform__rows
+            .mform__cols
+              .mform__col
+                .mform__rows
+                  .mform__row
+                    label.mform__label(for="temperature") Температура
+                  .mform__row
+                    input#temperature.mform__input.mform__input_text(
+                      name="temperature"
+                      type="text"
+                      autocomplete="off"
+                    )
+              .mform__col
+                .mform__rows
+                  .mform__row
+                    label.mform__label(for="dewpoint") Точка росы
+                  .mform__row
+                    input#dewpoint.mform__input.mform__input_text(
+                      name="dewpoint"
+                      type="text"
+                      autocomplete="off"
+                    )
+
+          .mform__item
+            .mform__cols
+              .mform__col
+                .mform__rows
+                  .mform__row
+                    label.mform__label(for="pressure") Давление
+                  .mform__row
+                    input#pressure.mform__input.mform__input_text(
+                      name="pressure"
+                      type="text"
+                      autocomplete="off"
+                    )
+              .mform__col
+                .mform__cols
+                  .mform__col
+                    input#pressure_units_a.mform__input.mform__input_radio(
+                      name="pressure_units"
+                      type="radio"
+                      value="a"
+                      checked
+                    )
+                    label.mform__label(for="pressure_units_a") A
+                  .mform__col
+                    input#pressure_units_q.mform__input.mform__input_radio(
+                      name="pressure_units"
+                      type="radio"
+                      value="q"
+                    )
+                    label.mform__label(for="pressure_units_q") Q
+
+          .mform__item
+            .mform__cols
+              .mform__col
+                .mform__rows
+                  .mform__row
+                    label.mform__label(for="output") Сводка
+                  .mform__row
+                    input#output.mform__input.mform__input_text(
+                      name="output"
+                      type="text"
+                      autocomplete="off"
+                    )
+              .mform__col
+                input.mform__input.mform__input_success(
+                  type="submit"
+                  value="Создать"
+                )
